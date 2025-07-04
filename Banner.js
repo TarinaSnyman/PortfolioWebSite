@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // // Show the banner only if not dismissed before
-  // if (!localStorage.getItem("bannerDismissed")) {
-  //   banner.classList.remove("hidden");
+  // Show the banner only if not dismissed before
+  if (!localStorage.getItem("bannerDismissed")) {
+    banner.classList.remove("hidden");
      mainContent.classList.add("blurred");
-  // }
+  }
 
   // Handle OK button click
   okBtn.addEventListener("click", function () {

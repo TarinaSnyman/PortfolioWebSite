@@ -4,23 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
+    <link rel="icon" type="image/x-icon" href="/Images/github_avatar.png">
 </head>
 <body>
+    <div class="container">
+        <header>
+        <img  id="avatar" src="Images/github_avatar.png" alt="avatar">
+        <div id="name">
+            <span class="show">T</span><span class="hidden">arina</span>
+            <span class="show">S</span><span class="hidden">nyman</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href=index.html#AboutMe">About</a></li>
+                <li> <a href="index.html#Projects">Projects</a></li>
+                
+            </ul>
+
+        </nav> 
+    </header>
     <h1>Contact Me</h1>
     <p>Feel free to send me a message or ask me any questions</p>
-    <form action="">
+    <form action="" class="ContactMeForm">
         <label for="fname">First Name</label>
-        <input type="text" name="firstname" id="fname" placeholder="Your name..">
+        <input type="text" name="firstname" id="fname" placeholder="Your name...">
 
         <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <input type="text" id="lname" name="lastname" placeholder="Your last name...">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email address...">
 
         <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Write me a message"></textarea>
+        <textarea id="message" name="message" placeholder="Write me a message..."></textarea>
 
-        <input type="submit" value="Submit">
+        <button type="submit" class="ContactMeFormbutton">Send</button>
     </form>
-
-    
+    </div>
+    <footer id="footer">
+        <h2>Other Ways to Contact Me:</h2>
+        <!-- contact information -->
+         <img src="" alt="github">
+         <img src="" alt="linkedin">
+         <p>Email: <a href="mailto:tarina.snyman@gmail.com" target="blank">tarina.snyman@gmail.com</a></p>
+    </footer>
+    </div>
+    </div>
+     <link rel="stylesheet" href="contactMe.css">
 </body>
 </html>
