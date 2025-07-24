@@ -6,6 +6,7 @@ body{
     width: 100%;
     margin: 0; 
     padding: 0;
+    padding-top: 1rem;
 }
 
 .container{
@@ -32,7 +33,7 @@ body{
 }
 /* header */
 header{
-    border-bottom: 1px solid #650bad;
+  border-bottom: 1px solid #650bad;
   background-color: #e8c6f3;
   width: 100%;
   padding: 10px 20px;
@@ -44,6 +45,7 @@ header{
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  box-shadow: 0 2px 5px rgba(53, 8, 80, 0.377);
 }
 .profile {
   display: flex;
@@ -140,7 +142,119 @@ nav ul {
     border-style: solid;
     border-color: #e8c6f3; 
   }
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
 
+/* Button that triggers dropdown */
+.dropbtn {
+  display: block;
+  color: black;
+  text-align: center;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  padding: 10px 14px;
+  text-decoration: none;
+  border-style: solid;
+  border-color: #e8c6f3;
+  border-radius: 10px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+/* On hover effect for button */
+.dropdown:hover .dropbtn {
+  background-color: rgb(128, 111, 226);
+  color: white;
+}
+
+/* Dropdown  */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: max-content;
+  background-color: rgb(128, 111, 226);
+  border: 1px solid #e8c6f3;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.dropdown-content li {
+  display: block;
+}
+
+.dropdown-content li a {
+  padding: 10px 14px;
+  display: block;
+  color: black;
+  text-decoration: none;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  white-space: nowrap;
+  background-color: white;
+  border-radius: 0;
+}
+
+.dropdown-content li a:hover {
+  background-color: rgb(128, 111, 226);
+  color: white;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+  /* pic */
+.about-intro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+.pic {
+    width: 30vw;
+    max-width: 200px;
+    margin-right: 10%;
+    flex-shrink: 0;
+    grid-area: picture;
+}
+
+.pic img {
+    width: 100%;
+    height: auto;
+    border-radius: 40px;
+	border: 3px solid #7e05cf;
+  object-fit: cover;
+}
+.about-text {
+  flex: 1; /* takes remaining space */
+  min-width: 250px;
+}
+
+.about-text h1 {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .about-intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-text {
+    min-width: 100%;
+  }
+}
+ 
 h1{
     color:  #650bad;
     font-weight: bold;
@@ -154,6 +268,17 @@ h2{
 }
 .About{
     grid-area: about;
+}
+/* beyond coding bullets */
+.emoji-bullets {
+  list-style: none;
+  padding-left: 0;
+}
+
+.emoji-bullets li {
+  margin-bottom: 1em;
+  padding-left: 1.2em;
+  text-indent: -1.2em;
 }
 .Projects{
     grid-area: projects;
