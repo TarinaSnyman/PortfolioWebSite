@@ -14,20 +14,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-//for carousel
-//variables
-const track=document.querySelector('.carouselTrack');
-const slides=Array.from(track.children);
-const nextBtn=document.querySelector('.carouselbtn--right');
-const prevBtn=document.querySelector('.carouselbtn--left');
-const dotsNav=document.querySelector('.carouselNav');
-const dots=Array.from(dotsNav.children);
+// carousel
+document.querySelectorAll('.carousel').forEach(carousel => {
+    //variables
+    const track = carousel.querySelector('.carouselTrack');
+    const slides = Array.from(track.children);
+    const nextBtn = carousel.querySelector('.carouselbtn--right');
+    const prevBtn = carousel.querySelector('.carouselbtn--left');
+    const dotsNav = carousel.querySelector('.carouselNav');
+    const dots = Array.from(dotsNav.children);
 
-const slideWidth=slides[0].getBoundingClientRect().width;
+    const slideWidth = slides[0].getBoundingClientRect().width;
 
 //arrange slides next to each other
 const setSlidePosition= (slide,index)=>{
-    slide.style.left=(slideWidth * index) + 'px';
+    slide.style.left=(100 * index) + '%';
 }
 
 slides.forEach(setSlidePosition); //loops for each slide
@@ -68,7 +69,7 @@ prevBtn.addEventListener('click',e=>{
 
     moveToSlide(track,currentSlide,prevSlide);
     updateDots(currentDot,prevDot);
-    hideShowArrows(targetIndex,slides,prevBtn,nextBtn);
+    hideShowArrows(prevIndex,slides,prevBtn,nextBtn);
     
     
 });
@@ -102,4 +103,5 @@ dotsNav.addEventListener('click',e=>{
     updateDots(currentDot,targetDot);
     hideShowArrows(targetIndex,slides,prevBtn,nextBtn);
 
+});
 });

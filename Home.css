@@ -287,60 +287,60 @@ h2{
 /* carousel  */
 .carousel{
     position: relative;
-    overflow: hidden;
-    width: 90vw;
+    overflow: visible;
+    width: 90%;             
     max-width: 1000px;
-    height: auto;
+    margin: 0 auto;          
     aspect-ratio: 16 / 9;
-    margin:0 auto;
 }
 .carouselContainer{
-    height: 100%;
-    height: 100%;
     position: relative;
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
     overflow: hidden;
-
+    box-sizing: border-box;
 }
 .carouselTrack{
+    position: relative;  
+    height: 100%;
+    list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
-    height: 100%;
     transition: transform 250ms ease-in;
 } 
 
 .carouselSlide{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 95%;
-    box-sizing: border-box;
-    height: 100%;
-    padding: 1rem;
-    border: 5px solid rgba(93, 0, 253, 0.7);
-    border-radius: 10%;
-    background-color: white;
-
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;  
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  border: 5px solid rgba(93, 0, 253, 0.7);
+  border-radius: 10%;
+  background-color: white;
 }
 .carouselbtn{
-    position: absolute;
-    top: 50%;
-    transform:translateY(-50%);
-    background-color: rgb(141, 2, 255);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    width: 2.5rem;
-    height: 2.5rem;
-    z-index: 2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(141, 2, 255);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  z-index: 2
 
 }
 .carouselbtn--left{
-    left: 2rem;
-    
+    left: -2rem;
 }
 .carouselbtn--right{
-    right: 0.5rem;
+    right: -2rem;
 }
 .carouselbtn:hover {
   background-color: rgba(93, 0, 253, 0.9);
@@ -391,7 +391,7 @@ h2{
 /* footer */
 #footer{
     background-color: #e8c6f3;
-    padding: 2rem 1rem;
+    /* padding: 2rem 1rem; */
     text-align: center;
     border-top: 2px solid #650bad;
 }
