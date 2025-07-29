@@ -211,6 +211,53 @@ nav ul {
   display: block;
 }
 
+/*helps resize the webpage to the screen size  */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "picture"
+      "about"
+      "projects"
+      "footer";
+  }
+
+  header {
+    flex-direction: row;
+    height: auto;
+  }
+
+  nav ul {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #name {
+    font-size: 2rem;
+  }
+
+  .innerContainer {
+    width: 90%;
+  }
+
+  #avatar {
+    width: 15vw;
+    height: 15vw;
+  }
+}
+
+@media (max-width: 600px) {
+  #name {
+    font-size: 1.8rem;
+  }
+
+  nav li a {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+}
+
   /* pic */
 .about-intro {
   display: flex;
@@ -291,12 +338,12 @@ h2{
     width: 90%;             
     max-width: 1000px;
     margin: 0 auto;          
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 2/1;
 }
 .carouselContainer{
     position: relative;
     width: 80%;
-    height: 80%;
+    height: 100%;
     margin: 0 auto;
     border-radius: 10px;
     overflow: hidden;
@@ -336,6 +383,25 @@ h2{
   z-index: 2
 
 }
+.gitLink {
+    color: white;
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 1rem);
+    padding: 5px 5px;
+    text-decoration: none;
+    border-style: solid;
+    border-color: rgb(141, 2, 255);
+    border-radius: 10px;
+    transition: color 0.3s ease-in-out;
+    background-color: rgb(141, 2, 255);
+    transition: all 0.3s ease;
+}
+.gitLink:hover{
+    background-color: #650bad;
+    color: white;
+    border-style: solid;
+    border-color: #650bad;
+  }
 .carouselbtn--left{
     left: -2rem;
 }
@@ -431,52 +497,5 @@ h2{
 }
 .social-icons a:hover img[src$="Images/Email.png"] {
   content: url("Images/EmailHover.png");
-}
-
-/*helps resize the webpage to the screen size  */
-@media (max-width: 1024px) {
-  .container {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "picture"
-      "about"
-      "projects"
-      "footer";
-  }
-
-  header {
-    flex-direction: row;
-    height: auto;
-  }
-
-  nav ul {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  #name {
-    font-size: 2.2rem;
-  }
-
-  .innerContainer {
-    width: 90%;
-  }
-
-  #avatar {
-    width: 15vw;
-    height: 15vw;
-  }
-}
-
-@media (max-width: 600px) {
-  #name {
-    font-size: 1.8rem;
-  }
-
-  nav li a {
-    font-size: 1.2rem;
-    padding: 10px;
-  }
 }
 
