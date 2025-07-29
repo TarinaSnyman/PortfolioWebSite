@@ -92,14 +92,15 @@
   .banner {
     top: 25%;
     height: auto;
-    padding: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
   }
 
   .banner_content {
     font-size: 1rem;
     padding: 0.8rem;
     height: auto;
-    width: 95%;
+    width: 100%;
   }
 
   #bannerTitle {
