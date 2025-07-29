@@ -14,6 +14,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+//hide header when scrolling down and show header when scrolling up
+let lastScrollTop=0;
+const header=document.querySelector('header');
+window.addEventListener('scroll', ()=>{
+    const currentscroll=window.pageYOffset||document.documentElement.scrollTop;
+    if(currentscroll>lastScrollTop){
+        header.classList.add('hidden');
+    }else{
+        header.classList.remove('hidden');
+    }
+    lastScrollTop=currentscroll<=0?0:currentscroll; //teniary operator that avoids negative scrolling
+});
+//offsets the scrolling so that it displays correctly
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
 // carousel
 document.querySelectorAll('.carousel').forEach(carousel => {
     //variables
