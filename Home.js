@@ -23,15 +23,17 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     const prevBtn = carousel.querySelector('.carouselbtn--left');
     const dotsNav = carousel.querySelector('.carouselNav');
     const dots = Array.from(dotsNav.children);
-
-    const slideWidth = slides[0].getBoundingClientRect().width;
+    const currentSlide=0;
 
 //arrange slides next to each other
 const setSlidePosition= (slide,index)=>{
     slide.style.left=(100 * index) + '%';
 }
-
 slides.forEach(setSlidePosition); //loops for each slide
+
+slides[0].classList.add('currentSlide');
+dots[0].classList.add('currentSlide');
+prevBtn.classList.add('isHidden');
 
 //moving slides
 const moveToSlide=(track,currentSlide,targetSlide)=>{
@@ -70,8 +72,6 @@ prevBtn.addEventListener('click',e=>{
     moveToSlide(track,currentSlide,prevSlide);
     updateDots(currentDot,prevDot);
     hideShowArrows(prevIndex,slides,prevBtn,nextBtn);
-    
-    
 });
 
 //when click right move to next slide 
@@ -102,57 +102,36 @@ dotsNav.addEventListener('click',e=>{
     moveToSlide(track,currentSlide,targetSlide);
     updateDots(currentDot,targetDot);
     hideShowArrows(targetIndex,slides,prevBtn,nextBtn);
-
 });
 });
 
 //function to set the size of slides
-function seMaxSlideSize(){
-    const slides= document.querySelectorAll('.carouselTrack li');
-    let maxHeight=0;
-    let maxwidth=0;
-    slides.forEach(slide=>{
-        slide.style.height='auto';
-        slide.style.width='auto';
+function setCarouselHeightAndWidth() {
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        const track = carousel.querySelector('.carouselTrack');
+        const slides = Array.from(track.children);
+        const container = carousel.querySelector('.carouselContainer');
 
-        const height=slide.offsetHeight;
-        const width= slide.offsetWidth;
+        let maxHeight = 0;
 
-        if(height>maxHeight)maxHeight=height;
-        if(width>maxWidth)maxWidth=width;
+        // reset heights to get natural height
+        slides.forEach(slide => {
+            slide.style.height = 'auto'; // reset if already set
+            slide.style.width = '100%';  // set width to 100%
+            const height = slide.offsetHeight;
+            if (height > maxHeight) maxHeight = height;
+        });
+
+        // applythe  max height to all slides, track, and container
+        slides.forEach(slide => {
+            slide.style.height = maxHeight + 'px';
+        });
+
+        track.style.height = maxHeight + 'px';
+        container.style.height = maxHeight + 'px';
     });
-    slides.forEach(slides=>{
-        slides.style.height=maxHeight+'px';
-        slides.style.width=maxWidth+'px';
-    });
-
-    const track=document.querySelector('.carouselTrack');
-    const conatiner=document.querySelector('.carouselContainer');
-    conatiner.style.height=maxHeight+'px';
-    conatiner.style.width=maxWidth+'px'
-    track.style.height=maxHeight+'px';
 }
-//call on load
-window.addEventListener('load',setMaxSlideSize);
 
-window.addEventListener("load", () => {
-  const slides = document.querySelectorAll(".carousel-slide"); // replace with your actual class
-  let maxHeight = 0;
-
-  slides.forEach(slide => {
-    slide.style.height = "auto"; // let it expand
-    const height = slide.offsetHeight;
-    if (height > maxHeight) {
-      maxHeight = height;
-    }
-  });
-
-  // Apply max height to all slides
-  slides.forEach(slide => {
-    slide.style.height = `${maxHeight}px`;
-  });
-
-  // Apply to container too
-  const container = document.querySelector(".carouselContainer");
-  if (container) container.style.height = `${maxHeight}px`;
-});
+// run on load and resize
+window.addEventListener('load', setCarouselHeightAndWidth);
+window.addEventListener('resize', setCarouselHeightAndWidth);
